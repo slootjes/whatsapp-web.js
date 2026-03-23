@@ -178,6 +178,7 @@ class RemoteAuth extends BaseAuthStrategy {
                 })
                 .catch(() => {});
         }
+        await fs.promises.mkdir(this.userDataDir, { recursive: true });
         if (sessionExists) {
             await this.store.extract({
                 session: this.sessionName,
